@@ -17,5 +17,9 @@ public class Game {
     public void requestUserClick() {
         Renderer.renderUserPrompt();
     }
+
+    public int[] extractCoordinate(String userInput) {
+        return null;
+    }
 }
 
