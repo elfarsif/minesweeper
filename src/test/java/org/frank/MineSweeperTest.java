@@ -38,10 +38,22 @@ class GameTest {
                         "|___|___|___|___|___|___|___|___|");
     }
 
+    private void renderInitialBoard() {
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                System.out.print("|___");
+            }
+            if (row == 8 - 1) {
+                System.out.print("|");
+                continue;
+            }
+            System.out.print("|\n");
+        }
+    }
+
     @Test
-    void acceptanceTest_givenApplicationStarts_whenClickingEmptyTile() {
+    void acceptanceTest_whenClickingEmptyTile() {
         Game game = new Game();
-        game.start();
         game.click(0, 0);
         assertThat(outContent.toString())
                 .isEqualTo("|   |___|___|___|___|___|___|___|\n" +
