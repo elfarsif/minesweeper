@@ -11,4 +11,7 @@ public class Game {
                 "|___|___|___|___|___|___|___|___|\n" +
                 "|___|___|___|___|___|___|___|___|");
     }
+
+    public void click(int row, int col) {
+    }
 }
