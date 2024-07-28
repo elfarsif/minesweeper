@@ -27,7 +27,6 @@ class GameTest {
     void acceptanceTest_whenStartsTheApplication_itShouldShowGameBoard() {
         Game game = new Game();
         game.start();
-
         assertThat(outContent.toString())
                 .isEqualTo("|___|___|___|___|___|___|___|___|\n" +
                         "|___|___|___|___|___|___|___|___|\n" +
