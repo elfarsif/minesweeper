@@ -1,14 +1,18 @@
 package org.frank;
 
+import org.frank.Renderer;
+
 public class Game {
+    int[][] board = new int[8][8];
+
     public void start() {
-        System.out.print("|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|");
+        Renderer.render(board);
     }
+
+    public void click(int row, int col) {
+        board[row][col] = State.EMPTY.value;
+        Renderer.render(board);
+    }
+
 }
+
