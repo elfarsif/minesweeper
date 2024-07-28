@@ -2,6 +2,9 @@ package org.frank;
 
 import org.frank.Renderer;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Game {
     int[][] board = new int[8][8];
 
@@ -19,7 +22,13 @@ public class Game {
     }
 
     public int[] extractCoordinate(String userInput) {
-        return null;
+        Pattern pattern = Pattern.compile("(\\d+),(\\d+)");
+        Matcher matcher = pattern.matcher(userInput);
+        matcher.find();
+        int row = Integer.valueOf(matcher.group(1));
+        int col = Integer.valueOf(matcher.group(2));
+
+        return new int[]{row, col};
     }
 }
 
