@@ -63,9 +63,9 @@ class GameTest {
     @Test
     void extractRowFromInput() {
         game.requestUserClick();
-        int[] coordinates = game.extractCoordinate("(1,2)");
+        Coordinate coordinates = game.extractCoordinate("(1,2)");
         assertThat(coordinates)
-                .isEqualTo(new int[]{1, 2});
+                .isEqualTo(new Coordinate(1, 2));
     }
 
 //    @Test

@@ -21,14 +21,13 @@ public class Game {
         Renderer.renderUserPrompt();
     }
 
-    public int[] extractCoordinate(String userInput) {
+    public Coordinate extractCoordinate(String userInput) {
         Pattern pattern = Pattern.compile("(\\d+),(\\d+)");
         Matcher matcher = pattern.matcher(userInput);
         matcher.find();
         int row = Integer.valueOf(matcher.group(1));
         int col = Integer.valueOf(matcher.group(2));
-
-        return new int[]{row, col};
+        return new Coordinate(row, col);
     }
 }
 
