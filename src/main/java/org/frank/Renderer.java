@@ -26,4 +26,8 @@ public class Renderer {
             System.out.print("|\n");
         }
     }
+
+    public static void renderUserPrompt() {
+        System.out.print("");
+    }
 }

@@ -66,4 +66,28 @@ class GameTest {
                         "|___|___|___|___|___|___|___|___|");
     }
 
+    @Test
+    void requestUserInput() {
+        Game game = new Game();
+        game.requestUserClick();
+        assertThat(outContent.toString())
+                .isEqualTo("Enter click in form (row,col)");
+    }
+
+//    @Test
+//    void acceptanceTest_whenUserEntersTwoZerosUserClick() {
+//        Game game = new Game();
+//        game.requestUserClick();
+//        game.executeUserClick();
+//        assertThat(outContent.toString())
+//                .isEqualTo("|   |___|___|___|___|___|___|___|\n" +
+//                        "|___|___|___|___|___|___|___|___|\n" +
+//                        "|___|___|___|___|___|___|___|___|\n" +
+//                        "|___|___|___|___|___|___|___|___|\n" +
+//                        "|___|___|___|___|___|___|___|___|\n" +
+//                        "|___|___|___|___|___|___|___|___|\n" +
+//                        "|___|___|___|___|___|___|___|___|\n" +
+//                        "|___|___|___|___|___|___|___|___|");
+//    }
+
 }

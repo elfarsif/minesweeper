@@ -14,5 +14,8 @@ public class Game {
         Renderer.render(board);
     }
 
+    public void requestUserClick() {
+        Renderer.renderUserPrompt();
+    }
 }
 
