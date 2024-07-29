@@ -34,7 +34,8 @@ public class Game {
         return matcher;
     }
 
-    public static String readName() {
+    public String getUserInput() {
+        requestUserClick();
         Scanner scanner = new Scanner(System.in);
         String input = scanner.next();
         return input;

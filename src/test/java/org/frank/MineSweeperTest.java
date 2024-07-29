@@ -8,7 +8,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.ByteArrayInputStream;
 
 import java.io.PrintStream;
-import java.util.Scanner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -72,11 +71,12 @@ class GameTest {
     }
 
     @Test
-    void spike_retrieveAndTestUserInput() {
-        provideInput("hello");
-        String input = game.readName();
-        assertThat(input)
-                .isEqualTo("hello");
+    void retrieveAndTestUserInput() {
+        provideInput("(1,2)");
+        String input = game.getUserInput();
+        Coordinate coordinates = game.extractCoordinate(input);
+        assertThat(coordinates)
+                .isEqualTo(new Coordinate(1, 2));
     }
 
     void provideInput(String data) {
