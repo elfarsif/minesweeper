@@ -1,19 +1,15 @@
 package org.frank;
 
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class Game {
-    int[][] board = new int[8][8];
+    Board board = new Board();
 
     public void start() {
-        Renderer.render(board);
+        Renderer.render(board.getGrid());
     }
 
     public void click(int row, int col) {
-        board[row][col] = State.EMPTY.value;
-        Renderer.render(board);
+        board.updateCell(row, col);
+        Renderer.render(board.getGrid());
     }
 
     public Coordinate getUserInput() {
