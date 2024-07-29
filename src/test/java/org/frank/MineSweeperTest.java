@@ -71,6 +71,19 @@ class GameTest {
                 .isEqualTo(new Coordinate(1, 2));
     }
 
+    @Test
+    void spike_retrieveAndTestUserInput() {
+        provideInput("hello");
+        String input = game.readName();
+        assertThat(input)
+                .isEqualTo("hello");
+    }
+
+    void provideInput(String data) {
+        ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());
+        System.setIn(testIn);
+    }
+
 //    @Test
 //    void acceptanceTest_whenUserEntersTwoZerosUserClick() {
 //        game.requestUserClick();
