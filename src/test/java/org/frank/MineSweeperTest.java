@@ -11,48 +11,12 @@ import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class GameTest {
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
+class GameTest extends StreamTest {
     private Game game;
 
     @BeforeEach
-    public void setUpStreams() {
+    void setUpGame() {
         game = new Game();
-        System.setOut(new PrintStream(outContent));
-    }
-
-    @AfterEach
-    public void restoreStreams() {
-        System.setOut(originalOut);
-    }
-
-    @Test
-    void acceptanceTest_whenStartsTheApplication_itShouldShowGameBoard() {
-        game.start();
-        assertThat(outContent.toString())
-                .isEqualTo("|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|");
-    }
-
-    @Test
-    void acceptanceTest_whenClickingEmptyTile() {
-        game.click(0, 0);
-        assertThat(outContent.toString())
-                .isEqualTo("|   |___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|");
     }
 
     @Test
@@ -63,15 +27,7 @@ class GameTest {
     }
 
     @Test
-    void extractRowFromInput() {
-        game.requestUserClick();
-        Coordinate coordinates = game.extractCoordinate("(1,2)");
-        assertThat(coordinates)
-                .isEqualTo(new Coordinate(1, 2));
-    }
-
-    @Test
-    void retrieveAndTestUserInput() {
+    void extractCoordinatesFromUserInput() {
         provideInput("(1,2)");
         String input = game.getUserInput();
         Coordinate coordinates = game.extractCoordinate(input);
@@ -83,20 +39,5 @@ class GameTest {
         ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());
         System.setIn(testIn);
     }
-
-//    @Test
-//    void acceptanceTest_whenUserEntersTwoZerosUserClick() {
-//        game.requestUserClick();
-//        game.executeUserClick();
-//        assertThat(outContent.toString())
-//                .isEqualTo("|   |___|___|___|___|___|___|___|\n" +
-//                        "|___|___|___|___|___|___|___|___|\n" +
-//                        "|___|___|___|___|___|___|___|___|\n" +
-//                        "|___|___|___|___|___|___|___|___|\n" +
-//                        "|___|___|___|___|___|___|___|___|\n" +
-//                        "|___|___|___|___|___|___|___|___|\n" +
-//                        "|___|___|___|___|___|___|___|___|\n" +
-//                        "|___|___|___|___|___|___|___|___|");
-//    }
 
 }
