@@ -18,15 +18,13 @@ class GameTest extends StreamTest {
 
     @Test
     void requestUserInput() {
-        UserInputParser parser = new UserInputParser();
-        parser.requestUserClick();
+        UserInputParser.requestUserClick();
         assertThat(outContent.toString())
                 .isEqualTo("Enter click in form (row,col)");
     }
 
     @Test
     void extractCoordinatesFromUserInput() {
-        UserInputParser parser = new UserInputParser();
         provideInput("(1,2)");
         Coordinate coordinates = game.getUserInput();
         assertThat(coordinates)

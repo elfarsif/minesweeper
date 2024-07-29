@@ -3,8 +3,8 @@ package org.frank;
 import java.util.Objects;
 
 public class Coordinate {
-    int row;
-    int col;
+    public int row;
+    public int col;
 
     public Coordinate(int row, int col) {
         this.row = row;
