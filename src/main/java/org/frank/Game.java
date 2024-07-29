@@ -16,5 +16,8 @@ public class Game {
         return UserInputParser.getUserInput();
     }
 
+    public void placeMine(int row, int col) {
+
+    }
 }
 

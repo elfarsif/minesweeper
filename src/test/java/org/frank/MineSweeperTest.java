@@ -36,4 +36,11 @@ class GameTest extends StreamTest {
         System.setIn(testIn);
     }
 
+    @Test
+    void placeAMine() {
+        game.placeMine(0, 0);
+        assertThat(game.board.grid[0][0])
+                .isEqualTo(State.MINE.value);
+    }
+
 }
