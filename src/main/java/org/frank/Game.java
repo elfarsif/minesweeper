@@ -16,7 +16,7 @@ public class Game {
         Renderer.render(board);
     }
 
-    public String getUserInput() {
+    public Coordinate getUserInput() {
         return UserInputParser.getUserInput();
     }
 

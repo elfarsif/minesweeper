@@ -1,13 +1,10 @@
 package org.frank;
 
-import org.junit.jupiter.api.AfterEach;
+import org.frank.util.StreamTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
 import java.io.ByteArrayInputStream;
-
-import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -31,8 +28,7 @@ class GameTest extends StreamTest {
     void extractCoordinatesFromUserInput() {
         UserInputParser parser = new UserInputParser();
         provideInput("(1,2)");
-        String input = game.getUserInput();
-        Coordinate coordinates = parser.extractCoordinate(input);
+        Coordinate coordinates = game.getUserInput();
         assertThat(coordinates)
                 .isEqualTo(new Coordinate(1, 2));
     }

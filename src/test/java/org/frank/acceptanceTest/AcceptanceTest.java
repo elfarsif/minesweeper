@@ -1,13 +1,9 @@
 package org.frank.acceptanceTest;
 
 import org.frank.Game;
-import org.frank.StreamTest;
-import org.junit.jupiter.api.AfterEach;
+import org.frank.util.StreamTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

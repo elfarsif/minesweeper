@@ -10,7 +10,7 @@ public class UserInputParser {
         Renderer.renderUserPrompt();
     }
 
-    public Coordinate extractCoordinate(String userInput) {
+    public static Coordinate extractCoordinate(String userInput) {
         Matcher matcher = findMatcherPattern(userInput);
         matcher.find();
         int row = Integer.valueOf(matcher.group(1));
@@ -18,15 +18,16 @@ public class UserInputParser {
         return new Coordinate(row, col);
     }
 
-    private Matcher findMatcherPattern(String userInput) {
+    private static Matcher findMatcherPattern(String userInput) {
         Pattern pattern = Pattern.compile("(\\d+),(\\d+)");
         Matcher matcher = pattern.matcher(userInput);
         return matcher;
     }
 
-    public static String getUserInput() {
+    public static Coordinate getUserInput() {
         requestUserClick();
-        return getScannerUserInput();
+        String userInput = getScannerUserInput();
+        return extractCoordinate(userInput);
     }
 
     private static String getScannerUserInput() {
