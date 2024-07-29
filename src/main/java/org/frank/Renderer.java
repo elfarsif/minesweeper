@@ -5,16 +5,16 @@ public class Renderer {
     public static void render(int[][] board) {
         int rowIndex = 0;
         for (int[] row : board) {
-            renderRow(row);
-            renderLastCell(board, rowIndex);
+            renderRow(row, rowIndex);
             rowIndex++;
         }
     }
 
-    private static void renderRow(int[] row) {
+    private static void renderRow(int[] row, int rowIndex) {
         for (int cell : row) {
             renderCell(cell);
         }
+        renderLastCellInRow(rowIndex);
     }
 
     private static void renderCell(int cell) {
@@ -25,8 +25,8 @@ public class Renderer {
         }
     }
 
-    private static void renderLastCell(int[][] board, int row) {
-        if (row == board.length - 1) {
+    private static void renderLastCellInRow(int rowIndex) {
+        if (rowIndex == 7) {
             System.out.print("|");
         } else {
             System.out.print("|\n");
