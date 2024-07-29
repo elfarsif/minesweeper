@@ -1,6 +1,8 @@
 package org.frank;
 
-import org.frank.Renderer;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Game {
     int[][] board = new int[8][8];
@@ -12,6 +14,10 @@ public class Game {
     public void click(int row, int col) {
         board[row][col] = State.EMPTY.value;
         Renderer.render(board);
+    }
+
+    public Coordinate getUserInput() {
+        return UserInputParser.getUserInput();
     }
 
 }
