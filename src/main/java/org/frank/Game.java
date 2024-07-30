@@ -18,6 +18,8 @@ public class Game {
 
     public void placeMine(int row, int col) {
         board.updateCell(row, col, State.MINE);
+        board.grid2[row][col + 1].state = State.MARKER;
     }
+
 }
 
