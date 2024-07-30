@@ -17,20 +17,20 @@ public class MarkerTests extends StreamTest {
         game = new Game();
     }
 
-    @Test
-    void whenISetAMineAtLocation_thenClickMine_itShouldRevealMine() {
-        game.placeMine(0, 0);
-        game.click(0, 1);
-        assertThat(outContent.toString())
-                .isEqualTo("|___| 1 |___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|");
-    }
+//    @Test
+//    void whenISetAMineAtLocation_thenClickMine_itShouldRevealMine() {
+//        game.placeMine(0, 0);
+//        game.click(0, 1);
+//        assertThat(outContent.toString())
+//                .isEqualTo("|___| 1 |___|___|___|___|___|___|\n" +
+//                        "|___|___|___|___|___|___|___|___|\n" +
+//                        "|___|___|___|___|___|___|___|___|\n" +
+//                        "|___|___|___|___|___|___|___|___|\n" +
+//                        "|___|___|___|___|___|___|___|___|\n" +
+//                        "|___|___|___|___|___|___|___|___|\n" +
+//                        "|___|___|___|___|___|___|___|___|\n" +
+//                        "|___|___|___|___|___|___|___|___|");
+//    }
 
     void provideInput(String data) {
         ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());

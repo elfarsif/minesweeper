@@ -43,4 +43,10 @@ class GameTest extends StreamTest {
                 .isEqualTo(State.MINE);
     }
 
+    @Test
+    void checkMarkerExists() {
+        game.placeMine(0, 0);
+        assertThat(game.board.grid2[0][1])
+                .isEqualTo(State.MARKER);
+    }
 }

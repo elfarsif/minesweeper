@@ -2,7 +2,8 @@ package org.frank;
 
 public enum State {
     EMPTY(1),
-    MINE(2);
+    MINE(2),
+    MARKER(3);
 
     public int value;
 
