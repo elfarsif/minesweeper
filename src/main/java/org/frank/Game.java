@@ -8,7 +8,9 @@ public class Game {
     }
 
     public void click(int row, int col) {
-        board.updateCell(row, col);
+        if (board.getGrid()[row][col] != 2) {
+            board.updateCell(row, col);
+        }
         Renderer.render(board.getGrid());
     }
 

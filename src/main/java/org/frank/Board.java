@@ -1,5 +1,8 @@
 package org.frank;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Board {
     int[][] grid = new int[8][8];
 
@@ -14,4 +17,5 @@ public class Board {
     public void updateCell(int row, int col, State state) {
         grid[row][col] = state.value;
     }
+
 }

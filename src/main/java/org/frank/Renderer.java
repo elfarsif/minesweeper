@@ -20,6 +20,8 @@ public class Renderer {
     private static void renderCell(int cell) {
         if (cell == State.EMPTY.value) {
             System.out.print("|   ");
+        } else if (cell == State.MINE.value) {
+            System.out.print("| * ");
         } else {
             System.out.print("|___");
         }
