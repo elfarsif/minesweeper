@@ -3,8 +3,13 @@ package org.frank;
 import org.frank.util.StreamTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.ByteArrayInputStream;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -43,10 +48,18 @@ class GameTest extends StreamTest {
                 .isEqualTo(State.MINE);
     }
 
-    @Test
-    void checkMarkerExists() {
+    @ParameterizedTest
+    @MethodSource("generator")
+    void checkMarkerExists(Coordinate coordinate) {
         game.placeMine(0, 0);
-        assertThat(game.board.grid2[0][1].state)
+        assertThat(game.board.grid2[coordinate.row][coordinate.col].state)
                 .isEqualTo(State.MARKER);
+    }
+
+    private static Stream<Coordinate> generator() {
+        return Stream.of(
+                new Coordinate(0, 1),
+                new Coordinate(1, 0)
+        );
     }
 }
