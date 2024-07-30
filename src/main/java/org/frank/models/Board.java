@@ -1,5 +1,7 @@
 package org.frank.models;
 
+import org.frank.MarkerUpdater;
+
 public class Board {
     public Cell[][] grid = new Cell[8][8];
 
@@ -28,30 +30,7 @@ public class Board {
     }
 
     public void updateMarkers(Coordinate coordinate) {
-        updateRightMarker(coordinate);
-        updateSouthMarker(coordinate);
-        updateWestMarker(coordinate);
-        updateNorthMarker(coordinate);
-    }
-
-    private void updateNorthMarker(Coordinate coordinate) {
-        if (coordinate.row != 0) {
-            grid[coordinate.row - 1][coordinate.col].state = State.MARKER;
-        }
-    }
-
-    private void updateWestMarker(Coordinate coordinate) {
-        if (coordinate.col != 0) {
-            grid[coordinate.row][coordinate.col - 1].state = State.MARKER;
-        }
-    }
-
-    private void updateSouthMarker(Coordinate coordinate) {
-        grid[coordinate.row + 1][coordinate.col].state = State.MARKER;
-    }
-
-    private void updateRightMarker(Coordinate coordinate) {
-        grid[coordinate.row][coordinate.col + 1].state = State.MARKER;
+        MarkerUpdater.update(grid, coordinate);
     }
 
     public void updateBoard(Coordinate coordinate) {
