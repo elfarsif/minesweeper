@@ -19,8 +19,8 @@ public class Board {
         return grid;
     }
 
-    public void updateCell(int row, int col, State state) {
-        grid[row][col].state = state;
+    public void updateCell(int row, int col) {
+        grid[row][col].state = State.MINE;
     }
 
     public void setCellVisible(int row, int col) {
@@ -30,5 +30,10 @@ public class Board {
     public void updateMarkers(int row, int col) {
         grid[row][col + 1].state = State.MARKER;
         grid[row + 1][col].state = State.MARKER;
+    }
+
+    public void updateBoard(int row, int col) {
+        updateCell(row, col);
+        updateMarkers(row, col);
     }
 }

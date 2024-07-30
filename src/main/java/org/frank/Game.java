@@ -17,8 +17,7 @@ public class Game {
     }
 
     public void placeMine(int row, int col) {
-        board.updateCell(row, col, State.MINE);
-        board.updateMarkers(row, col);
+        board.updateBoard(row, col);
     }
 
 }
