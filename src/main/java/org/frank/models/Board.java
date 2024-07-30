@@ -1,6 +1,6 @@
 package org.frank.models;
 
-import org.frank.MarkerUpdater;
+import org.frank.markerUpdater.MarkerUpdater;
 
 public class Board {
     public Cell[][] grid = new Cell[8][8];
@@ -29,8 +29,8 @@ public class Board {
         grid[coordinate.row][coordinate.col].isVisible = true;
     }
 
-    public void updateMarkers(Coordinate coordinate) {
-        MarkerUpdater.update(grid, coordinate);
+    public void updateMarkers(Coordinate mine) {
+        MarkerUpdater.update(grid, mine);
     }
 
     public void updateBoard(Coordinate coordinate) {
