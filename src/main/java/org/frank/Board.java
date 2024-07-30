@@ -4,18 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
-    int[][] grid = new int[8][8];
+    Cell[][] grid2 = new Cell[8][8];
 
-    public int[][] getGrid() {
-        return grid;
+    public Board() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                grid2[i][j] = new Cell();
+            }
+        }
+    }
+
+    public Cell[][] getGrid() {
+        return grid2;
     }
 
     public void updateCell(int row, int col) {
-        grid[row][col] = State.EMPTY.value;
+        grid2[row][col].state = State.EMPTY;
     }
 
     public void updateCell(int row, int col, State state) {
-        grid[row][col] = state.value;
+        grid2[row][col].state = state;
     }
 
+    public void setCellVisible(int row, int col) {
+        grid2[row][col].isVisible = true;
+    }
 }
