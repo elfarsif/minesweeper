@@ -4,9 +4,7 @@ import org.frank.util.StreamTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.ByteArrayInputStream;
 import java.util.stream.Stream;
@@ -44,7 +42,7 @@ class GameTest extends StreamTest {
     @Test
     void placeAMine() {
         game.placeMine(0, 0);
-        assertThat(game.board.grid2[0][0].state)
+        assertThat(game.board.grid[0][0].state)
                 .isEqualTo(State.MINE);
     }
 
@@ -52,7 +50,7 @@ class GameTest extends StreamTest {
     @MethodSource("generator")
     void checkMarkerExists(Coordinate coordinate) {
         game.placeMine(0, 0);
-        assertThat(game.board.grid2[coordinate.row][coordinate.col].state)
+        assertThat(game.board.grid[coordinate.row][coordinate.col].state)
                 .isEqualTo(State.MARKER);
     }
 
