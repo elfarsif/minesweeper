@@ -26,4 +26,5 @@ public class Board {
     public void setCellVisible(int row, int col) {
         grid2[row][col].isVisible = true;
     }
+
 }
