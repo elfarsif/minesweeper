@@ -36,32 +36,11 @@ class GameTest extends StreamTest {
         System.setIn(testIn);
     }
 
-    private void renderInitialBoard() {
-        for (int row = 0; row < 8; row++) {
-            for (int col = 0; col < 8; col++) {
-                System.out.print("|___");
-            }
-            if (row == 8 - 1) {
-                System.out.print("|");
-                continue;
-            }
-            System.out.print("|\n");
-        }
-    }
-
     @Test
-    void acceptanceTest_whenClickingEmptyTile() {
-        Game game = new Game();
-        game.click(0, 0);
-        assertThat(outContent.toString())
-                .isEqualTo("|   |___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|\n" +
-                        "|___|___|___|___|___|___|___|___|");
+    void placeAMine() {
+        game.placeMine(0, 0);
+        assertThat(game.board.grid2[0][0].state)
+                .isEqualTo(State.MINE);
     }
 
 }

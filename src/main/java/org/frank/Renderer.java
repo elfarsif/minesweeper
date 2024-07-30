@@ -2,23 +2,25 @@ package org.frank;
 
 public class Renderer {
 
-    public static void render(int[][] board) {
+    public static void render(Cell[][] board) {
         int rowIndex = 0;
-        for (int[] row : board) {
+        for (Cell[] row : board) {
             renderRow(row, rowIndex);
             rowIndex++;
         }
     }
 
-    private static void renderRow(int[] row, int rowIndex) {
-        for (int cell : row) {
+    private static void renderRow(Cell[] row, int rowIndex) {
+        for (Cell cell : row) {
             renderCell(cell);
         }
         renderLastCellInRow(rowIndex);
     }
 
-    private static void renderCell(int cell) {
-        if (cell == State.EMPTY.value) {
+    private static void renderCell(Cell cell) {
+        if (cell.isVisible && cell.state == State.MINE) {
+            System.out.print("| * ");
+        } else if (cell.isVisible) {
             System.out.print("|   ");
         } else {
             System.out.print("|___");
@@ -37,3 +39,5 @@ public class Renderer {
         System.out.print("Enter click in form (row,col)");
     }
 }
+
+

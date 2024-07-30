@@ -63,6 +63,21 @@ public class AcceptanceTest extends StreamTest {
                         "|___|___|___|___|___|___|___|___|");
     }
 
+    @Test
+    void whenISetAMineAtLocation_thenClickMine_itShouldRevealMine() {
+        game.placeMine(0, 0);
+        game.click(0, 0);
+        assertThat(outContent.toString())
+                .isEqualTo("| * |___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|");
+    }
+
     void provideInput(String data) {
         ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());
         System.setIn(testIn);
