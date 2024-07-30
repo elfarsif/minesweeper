@@ -1,11 +1,12 @@
-package org.frank;
+package org.frank.models;
 
 public class Cell {
-    State state;
-    boolean isVisible;
+    public State state;
+    public boolean isVisible;
 
     public Cell() {
         state = State.EMPTY;
         isVisible = false;
     }
+
 }

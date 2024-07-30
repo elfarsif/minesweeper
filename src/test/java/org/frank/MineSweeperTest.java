@@ -1,5 +1,8 @@
 package org.frank;
 
+import org.frank.models.Coordinate;
+import org.frank.models.State;
+import org.frank.ui.UserInputParser;
 import org.frank.util.StreamTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,5 +1,10 @@
 package org.frank;
 
+import org.frank.models.Board;
+import org.frank.models.Coordinate;
+import org.frank.ui.Renderer;
+import org.frank.ui.UserInputParser;
+
 public class Game {
     Board board = new Board();
 

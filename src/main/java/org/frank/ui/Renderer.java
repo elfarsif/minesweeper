@@ -1,4 +1,7 @@
-package org.frank;
+package org.frank.ui;
+
+import org.frank.models.Cell;
+import org.frank.models.State;
 
 public class Renderer {
 

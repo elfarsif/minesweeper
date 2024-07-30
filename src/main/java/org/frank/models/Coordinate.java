@@ -1,6 +1,4 @@
-package org.frank;
-
-import java.util.Objects;
+package org.frank.models;
 
 public class Coordinate {
     public int row;

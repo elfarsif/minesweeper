@@ -1,7 +1,7 @@
-package org.frank;
+package org.frank.models;
 
 public class Board {
-    Cell[][] grid = new Cell[8][8];
+    public Cell[][] grid = new Cell[8][8];
 
     public Board() {
         initializeEmptyCellsInGrid();

@@ -1,4 +1,4 @@
-package org.frank;
+package org.frank.models;
 
 public enum State {
     EMPTY,

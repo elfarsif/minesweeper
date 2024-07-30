@@ -1,4 +1,6 @@
-package org.frank;
+package org.frank.ui;
+
+import org.frank.models.Coordinate;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;

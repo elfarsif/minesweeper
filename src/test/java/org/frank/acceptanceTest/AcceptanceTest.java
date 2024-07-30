@@ -1,6 +1,6 @@
 package org.frank.acceptanceTest;
 
-import org.frank.Coordinate;
+import org.frank.models.Coordinate;
 import org.frank.Game;
 import org.frank.util.StreamTest;
 import org.junit.jupiter.api.BeforeEach;
