@@ -6,7 +6,7 @@ import org.frank.ui.Renderer;
 import org.frank.ui.UserInputParser;
 
 public class Game {
-    Board board = new Board();
+    public Board board = new Board();
 
     public void start() {
         Renderer.render(board.getGrid());

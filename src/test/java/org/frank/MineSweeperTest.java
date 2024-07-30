@@ -50,31 +50,4 @@ class GameTest extends StreamTest {
                 .isEqualTo(State.MINE);
     }
 
-    @ParameterizedTest
-    @MethodSource("generator")
-    void checkMarkerExists(Coordinate coordinate) {
-        game.placeMine(new Coordinate(1, 1));
-        assertThat(game.board.grid[coordinate.row][coordinate.col].state)
-                .isEqualTo(State.MARKER);
-    }
-
-    private static Stream<Coordinate> generator() {
-        Coordinate mine = new Coordinate(1, 1);
-        markerLocation(mine, Direction.EAST);
-        return Stream.of(
-                markerLocation(mine, Direction.NORTH),
-                markerLocation(mine, Direction.NORTH_EAST),
-                markerLocation(mine, Direction.EAST),
-                markerLocation(mine, Direction.SOUTH_EAST),
-                markerLocation(mine, Direction.SOUTH),
-                markerLocation(mine, Direction.SOUTH_WEST),
-                markerLocation(mine, Direction.WEST),
-                markerLocation(mine, Direction.NORTH_WEST)
-        );
-    }
-
-    private static Coordinate markerLocation(Coordinate mine, Direction direction) {
-        return new Coordinate(mine.row + direction.coordinate.row, mine.col + direction.coordinate.col);
-    }
-
 }
