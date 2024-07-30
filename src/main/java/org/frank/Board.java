@@ -10,4 +10,8 @@ public class Board {
     public void updateCell(int row, int col) {
         grid[row][col] = State.EMPTY.value;
     }
+
+    public void updateCell(int row, int col, State state) {
+        grid[row][col] = state.value;
+    }
 }
