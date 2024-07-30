@@ -8,9 +8,6 @@ public class Game {
     }
 
     public void click(int row, int col) {
-        if (board.getGrid()[row][col].state != State.MINE) {
-            board.updateCell(row, col);
-        }
         board.setCellVisible(row, col);
         Renderer.render(board.getGrid());
     }
