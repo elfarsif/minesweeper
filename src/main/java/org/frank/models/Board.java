@@ -31,6 +31,13 @@ public class Board {
         updateRightMarker(coordinate);
         updateSouthMarker(coordinate);
         updateWestMarker(coordinate);
+        updateNorthMarker(coordinate);
+    }
+
+    private void updateNorthMarker(Coordinate coordinate) {
+        if (coordinate.row != 0) {
+            grid[coordinate.row - 1][coordinate.col].state = State.MARKER;
+        }
     }
 
     private void updateWestMarker(Coordinate coordinate) {
