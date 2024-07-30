@@ -20,15 +20,19 @@ public class MarkerUpdater {
     }
 
     private static void updateMarkerValue(Cell[][] grid, Coordinate mine, Direction direction) {
-        if (grid[mine.row + direction.coordinate.row][mine.col + direction.coordinate.col].markerValue != null) {
-            grid[mine.row + direction.coordinate.row][mine.col + direction.coordinate.col].markerValue += 1;
+        if (getCellAdjacentFromMine(grid, mine, direction).markerValue != null) {
+            getCellAdjacentFromMine(grid, mine, direction).markerValue += 1;
         } else {
-            grid[mine.row + direction.coordinate.row][mine.col + direction.coordinate.col].markerValue = 1;
+            getCellAdjacentFromMine(grid, mine, direction).markerValue = 1;
         }
     }
 
+    private static Cell getCellAdjacentFromMine(Cell[][] grid, Coordinate mine, Direction direction) {
+        return grid[mine.row + direction.coordinate.row][mine.col + direction.coordinate.col];
+    }
+
     private static void updateStateToMarker(Cell[][] grid, Coordinate mine, Direction direction) {
-        grid[mine.row + direction.coordinate.row][mine.col + direction.coordinate.col].state = State.MARKER;
+        getCellAdjacentFromMine(grid, mine, direction).state = State.MARKER;
     }
 
     private static boolean markerLocationIsInsideBoard(Coordinate mine, Direction direction) {
