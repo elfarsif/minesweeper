@@ -52,14 +52,15 @@ class GameTest extends StreamTest {
     @ParameterizedTest
     @MethodSource("generator")
     void checkMarkerExists(Coordinate coordinate) {
-        game.placeMine(0, 0);
+        game.placeMine(1, 1);
         assertThat(game.board.grid[coordinate.row][coordinate.col].state)
                 .isEqualTo(State.MARKER);
     }
 
     private static Stream<Coordinate> generator() {
         return Stream.of(
-                new Coordinate(0, 1),
+                new Coordinate(1, 2),
+                new Coordinate(2, 1),
                 new Coordinate(1, 0)
         );
     }
