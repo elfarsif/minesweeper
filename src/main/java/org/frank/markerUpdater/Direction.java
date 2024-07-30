@@ -4,6 +4,7 @@ import org.frank.models.Coordinate;
 
 public enum Direction {
     NORTH(new Coordinate(-1, 0)),
+    NORTH_EAST(new Coordinate(-1, 1)),
     EAST(new Coordinate(0, 1)),
     SOUTH(new Coordinate(1, 0)),
     WEST(new Coordinate(0, -1)),
