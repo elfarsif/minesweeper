@@ -11,10 +11,10 @@ public class MarkerUpdater {
         updateSouthMarker(grid, coordinate);
         updateWestMarker(grid, coordinate);
         updateNorthMarker(grid, coordinate);
-        updateNorthEastMarker(grid, coordinate);
+        updateNorthWestMarker(grid, coordinate);
     }
 
-    private static void updateNorthEastMarker(Cell[][] grid, Coordinate coordinate) {
+    private static void updateNorthWestMarker(Cell[][] grid, Coordinate coordinate) {
         if (coordinate.row != 0 && coordinate.col != 0) {
             grid[coordinate.row - 1][coordinate.col - 1].state = State.MARKER;
         }
