@@ -34,7 +34,7 @@ public class AcceptanceTest extends StreamTest {
 
     @Test
     void whenClickingFirstTile_itShouldRevealEmptyTile() {
-        game.click(0, 0);
+        game.click(new Coordinate(0, 0));
         assertThat(outContent.toString())
                 .isEqualTo("|   |___|___|___|___|___|___|___|\n" +
                         "|___|___|___|___|___|___|___|___|\n" +
@@ -50,7 +50,7 @@ public class AcceptanceTest extends StreamTest {
     void userIsAskedForTheirInputs_itShouldRevealTheirClick() {
         provideInput("(0,0)");
         Coordinate coordinate = game.getUserInput();
-        game.click(coordinate.row, coordinate.col);
+        game.click(coordinate);
         assertThat(outContent.toString())
                 .isEqualTo("Enter click in form (row,col)" +
                         "|   |___|___|___|___|___|___|___|\n" +
@@ -65,8 +65,8 @@ public class AcceptanceTest extends StreamTest {
 
     @Test
     void whenISetAMineAtLocation_thenClickMine_itShouldRevealMine() {
-        game.placeMine(0, 0);
-        game.click(0, 0);
+        game.placeMine(new Coordinate(0, 0));
+        game.click(new Coordinate(0, 0));
         assertThat(outContent.toString())
                 .isEqualTo("| * |___|___|___|___|___|___|___|\n" +
                         "|___|___|___|___|___|___|___|___|\n" +

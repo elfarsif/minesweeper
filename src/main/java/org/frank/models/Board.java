@@ -19,24 +19,24 @@ public class Board {
         return grid;
     }
 
-    public void updateCell(int row, int col) {
-        grid[row][col].state = State.MINE;
+    public void updateCell(Coordinate cordinate) {
+        grid[cordinate.row][cordinate.col].state = State.MINE;
     }
 
-    public void setCellVisible(int row, int col) {
-        grid[row][col].isVisible = true;
+    public void setCellVisible(Coordinate coordinate) {
+        grid[coordinate.row][coordinate.col].isVisible = true;
     }
 
-    public void updateMarkers(int row, int col) {
-        grid[row][col + 1].state = State.MARKER;
-        grid[row + 1][col].state = State.MARKER;
-        if (col != 0) {
-            grid[row][col - 1].state = State.MARKER;
+    public void updateMarkers(Coordinate coordinate) {
+        grid[coordinate.row][coordinate.col + 1].state = State.MARKER;
+        grid[coordinate.row + 1][coordinate.col].state = State.MARKER;
+        if (coordinate.col != 0) {
+            grid[coordinate.row][coordinate.col - 1].state = State.MARKER;
         }
     }
 
-    public void updateBoard(int row, int col) {
-        updateCell(row, col);
-        updateMarkers(row, col);
+    public void updateBoard(Coordinate coordinate) {
+        updateCell(coordinate);
+        updateMarkers(coordinate);
     }
 }

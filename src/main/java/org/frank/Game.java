@@ -12,8 +12,8 @@ public class Game {
         Renderer.render(board.getGrid());
     }
 
-    public void click(int row, int col) {
-        board.setCellVisible(row, col);
+    public void click(Coordinate coordinate) {
+        board.setCellVisible(coordinate);
         Renderer.render(board.getGrid());
     }
 
@@ -21,8 +21,8 @@ public class Game {
         return UserInputParser.getUserInput();
     }
 
-    public void placeMine(int row, int col) {
-        board.updateBoard(row, col);
+    public void placeMine(Coordinate cordinate) {
+        board.updateBoard(cordinate);
     }
 
 }

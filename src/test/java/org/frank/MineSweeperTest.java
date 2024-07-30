@@ -44,7 +44,7 @@ class GameTest extends StreamTest {
 
     @Test
     void placeAMine() {
-        game.placeMine(0, 0);
+        game.placeMine(new Coordinate(0, 0));
         assertThat(game.board.grid[0][0].state)
                 .isEqualTo(State.MINE);
     }
@@ -52,7 +52,7 @@ class GameTest extends StreamTest {
     @ParameterizedTest
     @MethodSource("generator")
     void checkMarkerExists(Coordinate coordinate) {
-        game.placeMine(1, 1);
+        game.placeMine(new Coordinate(1, 1));
         assertThat(game.board.grid[coordinate.row][coordinate.col].state)
                 .isEqualTo(State.MARKER);
     }
