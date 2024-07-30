@@ -1,16 +1,13 @@
 package org.frank;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Board {
     Cell[][] grid2 = new Cell[8][8];
 
     public Board() {
-        initializeCellsInGrid();
+        initializeEmptyCellsInGrid();
     }
 
-    private void initializeCellsInGrid() {
+    private void initializeEmptyCellsInGrid() {
         for (Cell[] row : grid2) {
             for (int colIndex = 0; colIndex < row.length; colIndex++) {
                 row[colIndex] = new Cell();
