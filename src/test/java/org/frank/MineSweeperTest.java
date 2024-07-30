@@ -61,7 +61,8 @@ class GameTest extends StreamTest {
         return Stream.of(
                 new Coordinate(1, 2),
                 new Coordinate(2, 1),
-                new Coordinate(1, 0)
+                new Coordinate(1, 0),
+                new Coordinate(0, 1)
         );
     }
 }
