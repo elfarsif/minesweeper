@@ -27,4 +27,8 @@ public class Board {
         grid[row][col].isVisible = true;
     }
 
+    public void updateMarkers(int row, int col) {
+        grid[row][col + 1].state = State.MARKER;
+        grid[row + 1][col].state = State.MARKER;
+    }
 }
