@@ -24,12 +24,13 @@ public class Renderer {
         if (cell.isVisible && cell.state == State.MINE) {
             System.out.print("| * ");
         } else if (cell.isVisible && cell.state == State.MARKER) {
-            System.out.print("| M ");
+            System.out.print("| " + cell.markerValue + " ");
         } else if (cell.isVisible) {
             System.out.print("|   ");
         } else {
             System.out.print("|___");
         }
+
     }
 
     private static void renderLastCellInRow(int rowIndex) {
@@ -44,5 +45,4 @@ public class Renderer {
         System.out.print("Enter click in form (row,col)");
     }
 }
-
 

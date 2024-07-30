@@ -55,7 +55,23 @@ class GameTest extends StreamTest {
         game.placeMine(new Coordinate(0, 0));
         game.click(new Coordinate(0, 1));
         assertThat(outContent.toString())
-                .isEqualTo("|___| M |___|___|___|___|___|___|\n" +
+                .isEqualTo("|___| 1 |___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|");
+    }
+
+    @Test
+    void placingTwoMinesIncreases_TheMarkerValue() {
+        game.placeMine(new Coordinate(0, 0));
+        game.placeMine(new Coordinate(1, 0));
+        game.click(new Coordinate(0, 1));
+        assertThat(outContent.toString())
+                .isEqualTo("|___| 2 |___|___|___|___|___|___|\n" +
                         "|___|___|___|___|___|___|___|___|\n" +
                         "|___|___|___|___|___|___|___|___|\n" +
                         "|___|___|___|___|___|___|___|___|\n" +

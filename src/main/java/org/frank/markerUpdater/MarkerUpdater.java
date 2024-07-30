@@ -15,6 +15,15 @@ public class MarkerUpdater {
     private static void updateMarker(Cell[][] grid, Coordinate mine, Direction direction) {
         if (markerLocationIsInsideBoard(mine, direction)) {
             updateStateToMarker(grid, mine, direction);
+            updateMarkerValue(grid, mine, direction);
+        }
+    }
+
+    private static void updateMarkerValue(Cell[][] grid, Coordinate mine, Direction direction) {
+        if (grid[mine.row + direction.coordinate.row][mine.col + direction.coordinate.col].markerValue != null) {
+            grid[mine.row + direction.coordinate.row][mine.col + direction.coordinate.col].markerValue += 1;
+        } else {
+            grid[mine.row + direction.coordinate.row][mine.col + direction.coordinate.col].markerValue = 1;
         }
     }
 
