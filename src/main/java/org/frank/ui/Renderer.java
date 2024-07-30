@@ -23,6 +23,8 @@ public class Renderer {
     private static void renderCell(Cell cell) {
         if (cell.isVisible && cell.state == State.MINE) {
             System.out.print("| * ");
+        } else if (cell.isVisible && cell.state == State.MARKER) {
+            System.out.print("| M ");
         } else if (cell.isVisible) {
             System.out.print("|   ");
         } else {

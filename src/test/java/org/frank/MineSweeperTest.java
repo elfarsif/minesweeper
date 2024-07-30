@@ -50,4 +50,19 @@ class GameTest extends StreamTest {
                 .isEqualTo(State.MINE);
     }
 
+    @Test
+    void placeAMine_thenclickOnEast() {
+        game.placeMine(new Coordinate(0, 0));
+        game.click(new Coordinate(0, 1));
+        assertThat(outContent.toString())
+                .isEqualTo("|___| M |___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|\n" +
+                        "|___|___|___|___|___|___|___|___|");
+    }
+
 }
