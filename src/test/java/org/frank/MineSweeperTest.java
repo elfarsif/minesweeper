@@ -1,5 +1,6 @@
 package org.frank;
 
+import org.frank.markerUpdater.Direction;
 import org.frank.models.Coordinate;
 import org.frank.models.State;
 import org.frank.ui.UserInputParser;
@@ -58,13 +59,22 @@ class GameTest extends StreamTest {
     }
 
     private static Stream<Coordinate> generator() {
+        Coordinate mine = new Coordinate(1, 1);
+        markerLocation(mine, Direction.EAST);
         return Stream.of(
-                new Coordinate(1, 2),
-                new Coordinate(2, 1),
-                new Coordinate(1, 0),
-                new Coordinate(0, 1),
-                new Coordinate(0, 0),
-                new Coordinate(0, 2)
+                markerLocation(mine, Direction.NORTH),
+                markerLocation(mine, Direction.NORTH_EAST),
+                markerLocation(mine, Direction.EAST),
+                markerLocation(mine, Direction.SOUTH_EAST),
+                markerLocation(mine, Direction.SOUTH),
+                markerLocation(mine, Direction.SOUTH_WEST),
+                markerLocation(mine, Direction.WEST),
+                markerLocation(mine, Direction.NORTH_WEST)
         );
     }
+
+    private static Coordinate markerLocation(Coordinate mine, Direction direction) {
+        return new Coordinate(mine.row + direction.coordinate.row, mine.col + direction.coordinate.col);
+    }
+
 }
