@@ -22,7 +22,7 @@ public class Game {
     }
 
     public void placeMine(Coordinate cordinate) {
-        board.updateBoard(cordinate);
+        board.addMineToBoard(cordinate);
     }
 
 }

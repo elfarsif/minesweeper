@@ -6,7 +6,7 @@ import org.frank.models.State;
 
 public class MarkerUpdater {
 
-    public static void update(Cell[][] grid, Coordinate mine) {
+    public static void updateMarkersSurroundingMine(Cell[][] grid, Coordinate mine) {
         for (Direction direction : Direction.values()) {
             updateMarker(grid, mine, direction);
         }

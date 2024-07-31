@@ -17,24 +17,24 @@ public class Board {
         }
     }
 
+    public void addMineToBoard(Coordinate coordinate) {
+        setCellStateToMine(coordinate);
+        updateMarkersSurroundingMine(coordinate);
+    }
+
+    public void setCellStateToMine(Coordinate coordinate) {
+        grid[coordinate.row][coordinate.col].state = State.MINE;
+    }
+
+    public void updateMarkersSurroundingMine(Coordinate mine) {
+        MarkerUpdater.updateMarkersSurroundingMine(grid, mine);
+    }
+
     public Cell[][] getGrid() {
         return grid;
     }
 
-    public void updateCell(Coordinate cordinate) {
-        grid[cordinate.row][cordinate.col].state = State.MINE;
-    }
-
     public void setCellVisible(Coordinate coordinate) {
         grid[coordinate.row][coordinate.col].isVisible = true;
-    }
-
-    public void updateMarkers(Coordinate mine) {
-        MarkerUpdater.update(grid, mine);
-    }
-
-    public void updateBoard(Coordinate coordinate) {
-        updateCell(coordinate);
-        updateMarkers(coordinate);
     }
 }
