@@ -39,9 +39,9 @@ public class Board {
     }
 
     public void setAllCellsToVisible() {
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                setCellVisible(new Coordinate(i, j));
+        for (int rowIndex = 0; rowIndex < 8; rowIndex++) {
+            for (int colIndex = 0; colIndex < 8; colIndex++) {
+                setCellVisible(new Coordinate(rowIndex, colIndex));
             }
         }
     }
