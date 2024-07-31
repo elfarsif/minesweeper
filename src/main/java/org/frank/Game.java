@@ -1,14 +1,19 @@
 package org.frank;
 
+import org.frank.models.Board;
+import org.frank.models.Coordinate;
+import org.frank.ui.Renderer;
+import org.frank.ui.UserInputParser;
+
 public class Game {
-    Board board = new Board();
+    public Board board = new Board();
 
     public void start() {
         Renderer.render(board.getGrid());
     }
 
-    public void click(int row, int col) {
-        board.setCellVisible(row, col);
+    public void click(Coordinate coordinate) {
+        board.setCellVisible(coordinate);
         Renderer.render(board.getGrid());
     }
 
@@ -16,8 +21,9 @@ public class Game {
         return UserInputParser.getUserInput();
     }
 
-    public void placeMine(int row, int col) {
-        board.updateCell(row, col, State.MINE);
+    public void placeMine(Coordinate cordinate) {
+        board.addMineToBoard(cordinate);
     }
+
 }
 

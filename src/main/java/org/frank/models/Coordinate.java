@@ -1,6 +1,4 @@
-package org.frank;
-
-import java.util.Objects;
+package org.frank.models;
 
 public class Coordinate {
     public int row;
@@ -19,4 +17,11 @@ public class Coordinate {
         return row == that.row && col == that.col;
     }
 
+    @Override
+    public String toString() {
+        return "Coordinate{" +
+                "row=" + row +
+                ", col=" + col +
+                '}';
+    }
 }
