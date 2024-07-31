@@ -34,11 +34,7 @@ public class Renderer {
     }
 
     private static void renderLastCellInRow(int rowIndex) {
-        if (rowIndex == 7) {
-            System.out.print("|");
-        } else {
-            System.out.print("|\n");
-        }
+        System.out.print("|\n");
     }
 
     public static void renderUserPrompt() {

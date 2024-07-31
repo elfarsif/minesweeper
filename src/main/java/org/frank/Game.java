@@ -5,6 +5,8 @@ import org.frank.models.Coordinate;
 import org.frank.ui.Renderer;
 import org.frank.ui.UserInputParser;
 
+import java.util.Scanner;
+
 public class Game {
     public Board board = new Board();
 
@@ -25,5 +27,8 @@ public class Game {
         board.addMineToBoard(cordinate);
     }
 
+    public void revealMines() {
+
+    }
 }
 
