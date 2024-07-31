@@ -13,10 +13,14 @@ public class MarkerUpdater {
     }
 
     private static void updateMarker(Cell[][] grid, Coordinate mine, Direction direction) {
-        if (markerLocationIsInsideBoard(mine, direction)) {
+        if (markerLocationIsInsideBoard(mine, direction) && markerIsNotAMine(grid, mine, direction)) {
             updateStateToMarker(grid, mine, direction);
             updateMarkerValue(grid, mine, direction);
         }
+    }
+
+    private static boolean markerIsNotAMine(Cell[][] grid, Coordinate mine, Direction direction) {
+        return getCellAdjacentFromMine(grid, mine, direction).state != State.MINE;
     }
 
     private static void updateMarkerValue(Cell[][] grid, Coordinate mine, Direction direction) {
