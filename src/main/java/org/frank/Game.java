@@ -28,13 +28,9 @@ public class Game {
     }
 
     public void revealMines() {
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                board.setCellVisible(new Coordinate(i, j));
-            }
-        }
+        board.setAllCellsToVisible();
         Renderer.render(board.getGrid());
-
     }
+
 }
 

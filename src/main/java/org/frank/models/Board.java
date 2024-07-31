@@ -37,4 +37,12 @@ public class Board {
     public void setCellVisible(Coordinate coordinate) {
         grid[coordinate.row][coordinate.col].isVisible = true;
     }
+
+    public void setAllCellsToVisible() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                setCellVisible(new Coordinate(i, j));
+            }
+        }
+    }
 }
