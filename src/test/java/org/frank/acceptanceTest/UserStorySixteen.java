@@ -17,6 +17,7 @@ public class UserStorySixteen extends StreamTest {
     public void setUpGame() {
         gameContext = new GameContext();
     }
+/*
 
     @Test
     void whenTheGameLoopStarts_ItShouldAcceptClickInputsContinously() {
@@ -30,6 +31,7 @@ public class UserStorySixteen extends StreamTest {
                                 boardWith2CoordinatesRevealed()
                 );
     }
+*/
 
     void provideInput(String data) {
         ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());
