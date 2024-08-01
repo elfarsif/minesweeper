@@ -52,7 +52,7 @@ public class AcceptanceTest extends StreamTest {
         Coordinate coordinate = game.getUserInput();
         game.click(coordinate);
         assertThat(outContent.toString())
-                .isEqualTo("Enter click in form (row,col)" +
+                .isEqualTo("Enter click in form (row,col)\n" +
                         "|   |___|___|___|___|___|___|___|\n" +
                         "|___|___|___|___|___|___|___|___|\n" +
                         "|___|___|___|___|___|___|___|___|\n" +

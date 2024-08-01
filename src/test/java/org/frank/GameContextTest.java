@@ -19,7 +19,9 @@ class GameContextTest extends StreamTest {
 
     @Test
     void whenTheGameLoopStarts_ItShouldStartTheBoard() {
+        provideInput("(0,0)");
         gameContext.start();
+
         assertThat(outContent.toString())
                 .isEqualTo(
                         startingBoard()
