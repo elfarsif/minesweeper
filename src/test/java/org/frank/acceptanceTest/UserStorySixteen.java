@@ -22,9 +22,12 @@ public class UserStorySixteen extends StreamTest {
     void whenTheGameLoopStarts_ItShouldAcceptClickInputsContinously() {
         gameContext.start();
         provideInput("(0,0)");
+        provideInput("(1,1)");
         assertThat(outContent.toString())
                 .isEqualTo(
-                        startingBoard()
+                        startingBoard() +
+                                boardWithCoordinateRevealed() +
+                                boardWith2CoordinatesRevealed()
                 );
     }
 
@@ -42,7 +45,7 @@ public class UserStorySixteen extends StreamTest {
                 "|___|___|___|___|___|___|___|___|\n" +
                 "|___|___|___|___|___|___|___|___|\n" +
                 "|___|___|___|___|___|___|___|___|\n" +
-                "Enter click in form (row,col)";
+                "Enter click in form (row,col)\n";
     }
 
     String boardWithCoordinateRevealed() {
@@ -54,6 +57,18 @@ public class UserStorySixteen extends StreamTest {
                 "|___|___|___|___|___|___|___|___|\n" +
                 "|___|___|___|___|___|___|___|___|\n" +
                 "|___|___|___|___|___|___|___|___|\n" +
-                "Enter click in form (row,col)";
+                "Enter click in form (row,col)\n";
+    }
+
+    String boardWith2CoordinatesRevealed() {
+        return "|   |___|___|___|___|___|___|___|\n" +
+                "|___|   |___|___|___|___|___|___|\n" +
+                "|___|___|___|___|___|___|___|___|\n" +
+                "|___|___|___|___|___|___|___|___|\n" +
+                "|___|___|___|___|___|___|___|___|\n" +
+                "|___|___|___|___|___|___|___|___|\n" +
+                "|___|___|___|___|___|___|___|___|\n" +
+                "|___|___|___|___|___|___|___|___|\n" +
+                "Enter click in form (row,col)\n";
     }
 }
