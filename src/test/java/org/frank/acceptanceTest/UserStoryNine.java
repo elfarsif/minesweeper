@@ -22,14 +22,16 @@ public class UserStoryNine extends StreamTest {
     void whenIStartTheGame_itShouldShowGridAndUserPrompt() {
         game.placeMine(new Coordinate(1, 1));
         game.placeMine(new Coordinate(2, 1));
+        game.placeMine(new Coordinate(4, 3));
+        game.placeMine(new Coordinate(0, 0));
         game.revealMines();
         assertThat(outContent.toString())
-                .isEqualTo("| 1 | 1 | 1 |   |   |   |   |   |\n" +
+                .isEqualTo("| * | 2 | 1 |   |   |   |   |   |\n" +
+                        "| 3 | * | 2 |   |   |   |   |   |\n" +
                         "| 2 | * | 2 |   |   |   |   |   |\n" +
-                        "| 2 | * | 2 |   |   |   |   |   |\n" +
-                        "| 1 | 1 | 1 |   |   |   |   |   |\n" +
-                        "|   |   |   |   |   |   |   |   |\n" +
-                        "|   |   |   |   |   |   |   |   |\n" +
+                        "| 1 | 1 | 2 | 1 | 1 |   |   |   |\n" +
+                        "|   |   | 1 | * | 1 |   |   |   |\n" +
+                        "|   |   | 1 | 1 | 1 |   |   |   |\n" +
                         "|   |   |   |   |   |   |   |   |\n" +
                         "|   |   |   |   |   |   |   |   |\n"
                 );
