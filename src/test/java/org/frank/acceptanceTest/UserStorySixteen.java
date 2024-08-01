@@ -10,7 +10,7 @@ import java.io.ByteArrayInputStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class UserStorySixteen extends StreamTest {
+public class UserStorySixteen {
     private GameContext gameContext;
 
     @BeforeEach
@@ -20,57 +20,10 @@ public class UserStorySixteen extends StreamTest {
 /*
 
     @Test
-    void whenTheGameLoopStarts_ItShouldAcceptClickInputsContinously() {
+    void whenThe() {
         gameContext.start();
-        provideInput("(0,0)");
-        provideInput("(1,1)");
-        assertThat(outContent.toString())
-                .isEqualTo(
-                        startingBoard() +
-                                boardWithCoordinateRevealed() +
-                                boardWith2CoordinatesRevealed()
-                );
+        assertThat(gameContext.isRunning).isEqualTo(true);
     }
 */
 
-    void provideInput(String data) {
-        ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());
-        System.setIn(testIn);
-    }
-
-    String startingBoard() {
-        return "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "Enter click in form (row,col)\n";
-    }
-
-    String boardWithCoordinateRevealed() {
-        return "|   |___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "Enter click in form (row,col)\n";
-    }
-
-    String boardWith2CoordinatesRevealed() {
-        return "|   |___|___|___|___|___|___|___|\n" +
-                "|___|   |___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "|___|___|___|___|___|___|___|___|\n" +
-                "Enter click in form (row,col)\n";
-    }
 }
