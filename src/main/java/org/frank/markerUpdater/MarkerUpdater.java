@@ -8,15 +8,19 @@ public class MarkerUpdater {
 
     public static void updateMarkersSurroundingMine(Cell[][] grid, Coordinate mine) {
         for (Direction direction : Direction.values()) {
-            updateMarker(grid, mine, direction);
+            updateMarkerInDirection(grid, mine, direction);
         }
     }
 
-    private static void updateMarker(Cell[][] grid, Coordinate mine, Direction direction) {
-        if (markerLocationIsInsideBoard(mine, direction)) {
+    private static void updateMarkerInDirection(Cell[][] grid, Coordinate mine, Direction direction) {
+        if (markerLocationIsInsideBoard(mine, direction) && markerIsNotAMine(grid, mine, direction)) {
             updateStateToMarker(grid, mine, direction);
             updateMarkerValue(grid, mine, direction);
         }
+    }
+
+    private static boolean markerIsNotAMine(Cell[][] grid, Coordinate mine, Direction direction) {
+        return getCellAdjacentFromMine(grid, mine, direction).state != State.MINE;
     }
 
     private static void updateMarkerValue(Cell[][] grid, Coordinate mine, Direction direction) {
