@@ -1,5 +1,7 @@
 package org.frank;
 
+import org.frank.models.Coordinate;
+
 public class GameContext {
     Game game;
 
@@ -9,6 +11,7 @@ public class GameContext {
 
     public void start() {
         game.start();
-        game.getUserInput();
+        Coordinate userInput = game.getUserInput();
+        game.click(userInput);
     }
 }

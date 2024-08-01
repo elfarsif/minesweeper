@@ -24,7 +24,8 @@ class GameContextTest extends StreamTest {
 
         assertThat(outContent.toString())
                 .isEqualTo(
-                        startingBoard()
+                        startingBoard() +
+                                secondFrame()
                 );
     }
 
@@ -35,6 +36,18 @@ class GameContextTest extends StreamTest {
 
     String startingBoard() {
         return "|___|___|___|___|___|___|___|___|\n" +
+                "|___|___|___|___|___|___|___|___|\n" +
+                "|___|___|___|___|___|___|___|___|\n" +
+                "|___|___|___|___|___|___|___|___|\n" +
+                "|___|___|___|___|___|___|___|___|\n" +
+                "|___|___|___|___|___|___|___|___|\n" +
+                "|___|___|___|___|___|___|___|___|\n" +
+                "|___|___|___|___|___|___|___|___|\n" +
+                "Enter click in form (row,col)\n";
+    }
+
+    String secondFrame() {
+        return "|   |___|___|___|___|___|___|___|\n" +
                 "|___|___|___|___|___|___|___|___|\n" +
                 "|___|___|___|___|___|___|___|___|\n" +
                 "|___|___|___|___|___|___|___|___|\n" +
