@@ -4,9 +4,11 @@ import org.frank.models.Coordinate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class GameContextTest {
     GameContext gameContext;
@@ -20,19 +22,22 @@ class GameContextTest {
     }
 
     @Test
-    void checkGameIsRunning() {
-        when(gameMock.getUserInput())
-                .thenReturn(new Coordinate(1, 1));
+    void checkGameHasStarted() throws InterruptedException {
+        Coordinate mockCoordinate = mock(Coordinate.class);
+        when(gameMock.getUserInput()).thenReturn(mockCoordinate);
+        doNothing().when(gameMock).start();
 
-        gameContext.start();
-        assertThat(gameContext.isRunning).isEqualTo(true);
-    }
+        CountDownLatch latch = new CountDownLatch(1);
+        Thread startThread = new Thread(() -> {
+            gameContext.start();
+            latch.countDown();
+        });
 
-    @Test
-    void checkGameIsStopped() {
-        gameContext.isRunning = true;
-        gameContext.stop();
-        assertThat(gameContext.isRunning).isEqualTo(false);
+        startThread.start();
+        latch.await(2, TimeUnit.SECONDS);
+
+        assertThat(gameContext.isRunning).isTrue();
+
     }
 
 }

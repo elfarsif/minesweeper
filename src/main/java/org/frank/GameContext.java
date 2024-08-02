@@ -13,14 +13,12 @@ public class GameContext {
 
     public void start() {
         isRunning = true;
-
         game.start();
-        Coordinate userInput = game.getUserInput();
-        game.click(userInput);
+        while (isRunning) {
+            Coordinate userInput = game.getUserInput();
+            game.click(userInput);
+        }
 
     }
 
-    public void stop() {
-        isRunning = false;
-    }
 }
