@@ -1,5 +1,6 @@
 package org.frank;
 
+import org.frank.models.Board;
 import org.frank.models.Coordinate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,11 +14,14 @@ import static org.mockito.Mockito.*;
 class GameContextTest {
     GameContext gameContext;
     Game gameMock;
+    Board boardMock;
 
     @BeforeEach
     void setup() {
         gameContext = new GameContext();
         gameMock = mock(Game.class);
+        boardMock = new Board();
+        gameMock.board = boardMock;
         gameContext.game = gameMock;
     }
 
@@ -42,10 +46,12 @@ class GameContextTest {
 
     @Test
     void clickingAMineEndsTheGame() {
-        gameContext.isRunning = true;
-        gameMock.placeMine(new Coordinate(0, 0));
-        gameMock.click(new Coordinate(0, 0));
-        assertThat(gameContext.isRunning).isFalse();
+        GameContext gameContext1 = new GameContext();
+        gameContext1.isRunning = true;
+        gameContext1.game.placeMine(new Coordinate(0, 0));
+        gameContext1.game.click(new Coordinate(0, 0));
+
+        assertThat(gameContext1.isRunning).isFalse();
     }
 
 }

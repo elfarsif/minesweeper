@@ -1,9 +1,14 @@
 package org.frank.models;
 
+import org.frank.Observer;
 import org.frank.markerUpdater.MarkerUpdater;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Board {
     public Cell[][] grid = new Cell[8][8];
+    List<Observer> observers = new ArrayList<>();
 
     public Board() {
         initializeEmptyCellsInGrid();
@@ -35,7 +40,20 @@ public class Board {
     }
 
     public void setCellVisible(Coordinate coordinate) {
+        if (grid[coordinate.row][coordinate.col].state == State.MINE) {
+            notifyObservers();
+        }
         grid[coordinate.row][coordinate.col].isVisible = true;
+    }
+
+    public void registerObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update();
+        }
     }
 
     public void setAllCellsToVisible() {

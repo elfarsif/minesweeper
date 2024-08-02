@@ -2,14 +2,14 @@ package org.frank;
 
 import org.frank.models.Coordinate;
 
-public class GameContext {
+public class GameContext implements Observer {
     Game game;
+    public boolean isRunning;
 
     public GameContext() {
         game = new Game();
+        game.board.registerObserver(this);
     }
-
-    public boolean isRunning;
 
     public void start() {
         isRunning = true;
@@ -18,7 +18,10 @@ public class GameContext {
             Coordinate userInput = game.getUserInput();
             game.click(userInput);
         }
-
     }
 
+    @Override
+    public void update() {
+        isRunning = false;
+    }
 }
