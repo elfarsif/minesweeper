@@ -27,7 +27,7 @@ class GameTest extends StreamTest {
     void requestUserInput() {
         UserInputParser.requestUserClick();
         assertThat(outContent.toString())
-                .isEqualTo("Enter click in form (row,col)");
+                .isEqualTo("Enter click in form (row,col)\n");
     }
 
     @Test

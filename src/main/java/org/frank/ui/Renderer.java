@@ -38,7 +38,7 @@ public class Renderer {
     }
 
     public static void renderUserPrompt() {
-        System.out.print("Enter click in form (row,col)");
+        System.out.print("Enter click in form (row,col)\n");
     }
 }
 
