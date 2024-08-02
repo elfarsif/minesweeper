@@ -34,10 +34,18 @@ class GameContextTest {
         });
 
         startThread.start();
-        latch.await(2, TimeUnit.SECONDS);
+        latch.await(1, TimeUnit.SECONDS);
 
         assertThat(gameContext.isRunning).isTrue();
 
+    }
+
+    @Test
+    void clickingAMineEndsTheGame() {
+        gameContext.isRunning = true;
+        gameMock.placeMine(new Coordinate(0, 0));
+        gameMock.click(new Coordinate(0, 0));
+        assertThat(gameContext.isRunning).isFalse();
     }
 
 }
